@@ -20,7 +20,11 @@ class Triangle
   end
 
   def validate_triangle
+    #define a real triangle by the possible side lengths
     real_triangle = [ (a + b > c), (a + c > b), (b + c > a)]
+    #iterate of each side to determine the lengths and if it is a real triangle
+    #sides must be greater than 0
+    #raise TriangleError if a triangle has been evaluated to false.
     [a, b, c].each { |s| real_triangle << false if s <= 0}
     raise TriangleError if real_triangle.include?(false)
   end
